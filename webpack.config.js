@@ -59,9 +59,7 @@ module.exports = {
             new ExtractTextPlugin(
                 '[name].css',
                 {allChunks: true}
-            ),
-
-            new HtmlExPlugin()
+            )
         ];
 
         return arr;
