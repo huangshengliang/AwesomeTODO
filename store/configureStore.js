@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers';
 import * as actionCreators from '../actions';
 
@@ -10,7 +12,7 @@ export default function configureStore(preloadedState) {
             'https://github.com/zalmoxisus/redux-devtools-extension#installation')
     }
 
-    const store = createStore(rootReducer, preloadedState, enhancer);
+    const store = applyMiddleware(thunk, logger)(createStore)(rootReducer, preloadedState, enhancer);
 
     if (module.hot) {
         module.hot.accept('../reducers', () => {
