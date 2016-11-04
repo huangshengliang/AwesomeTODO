@@ -1,6 +1,6 @@
 import { ACTION_TYPE_ADD_TODO } from '../constants/ActionTypes';
 
-export default (state = [], action) => {
+export let addTodoReducer = (state = [], action) => {
     switch (action.type) {
         case ACTION_TYPE_ADD_TODO:
             let { subject, startAt, endAt, content, notificationType } = action.payload;
