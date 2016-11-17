@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as TodoActions from '../actions';
+import * as Actions from '../actions';
 
 import MainLayout from '../components/MainLayout';
 
@@ -15,7 +15,7 @@ class App extends Component {
 
     render() {
         return (
-            <MainLayout>
+            <MainLayout {...this.props}>
                 <button onClick={this.addTodoAction}>加1</button>
             </MainLayout>
         );
@@ -35,11 +35,12 @@ App.propTypes = {
 };
 
 let mapStateToProps = (state) => ({
-    todos: state.todos
+    todos: state.todos,
+    workspace: state.workspace
 });
 
 let mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
 });
 
 export default connect(

@@ -16,14 +16,17 @@ class MainLayout extends Component {
             style,
             className
         } = this.props;
+        let {
+            sideWidth
+        } = this.props.workspace;
         return (
             <div className={`main-layout ${className}`} style={style}>
-                <HeadNav/>
-                <SideNav/>
+                <HeadNav />
+                <SideNav width={sideWidth} />
                 <MainView>
                     {this.props.children}
                 </MainView>
-                <Footer/>
+                <Footer />
             </div>
         );
     }

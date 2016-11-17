@@ -18,17 +18,17 @@ export default function configureStore(preloadedState) {
     // const store = createStore(rootReducer, preloadedState, enhancer);
 
     // 2
-    // const store = createStore(
-    //     rootReducer,
-    //     preloadedState,
-    //     compose(
-    //         applyMiddleware(logger),
-    //         devToolsEnhancer
-    //     )
-    // );
+    const store = createStore(
+        rootReducer,
+        preloadedState,
+        compose(
+            applyMiddleware(logger),
+            devToolsEnhancer
+        )
+    );
 
     // 3
-    const store = applyMiddleware(thunk, logger)(createStore)(rootReducer, preloadedState);
+    // const store = applyMiddleware(thunk, logger)(createStore)(rootReducer, preloadedState);
 
     if (module.hot) {
         module.hot.accept('../reducers', () => {

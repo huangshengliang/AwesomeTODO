@@ -1,1 +1,7 @@
-export * from './actions';
+export {
+    addTodo
+} from './TodoActions';
+
+export {
+    resizeSidePanel
+} from './WorkspaceActions';
